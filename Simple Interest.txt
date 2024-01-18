@@ -1,0 +1,19 @@
+import 'dart:io';
+
+void main() {
+  stdout.write('Enter the principal amount: ');
+  double principal = double.parse(stdin.readLineSync()!);
+
+  stdout.write('Enter the rate of interest (in percentage): ');
+  double rate = double.parse(stdin.readLineSync()!);
+
+  stdout.write('Enter the time (in years): ');
+  double time = double.parse(stdin.readLineSync()!);
+
+  double simpleInterest = (principal * rate * time) / 100;
+
+  print('\nPrincipal Amount: $principal');
+  print('Rate of Interest: $rate%');
+  print('Time (in years): $time');
+  print('Simple Interest: $simpleInterest');
+}

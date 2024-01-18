@@ -1,0 +1,37 @@
+import 'dart:io';
+
+void main() {
+  stdout.write('Enter a list of numbers separated by spaces: ');
+  List<int> numbers = parseInputList(stdin.readLineSync()!);
+
+  stdout.write('Enter the number to search for: ');
+  int target = int.parse(stdin.readLineSync()!);
+
+  int index = linearSearch(numbers, target);
+
+  if (index != -1) {
+    print('$target found at index $index.');
+  } else {
+    print('$target not found in the list.');
+  }
+}
+
+List<int> parseInputList(String input) {
+  List<String> numberStrings = input.split(' ');
+  List<int> numbers = [];
+
+  for (String numStr in numberStrings) {
+    numbers.add(int.parse(numStr));
+  }
+
+  return numbers;
+}
+
+int linearSearch(List<int> nums, int target) {
+  for (int i = 0; i < nums.length; i++) {
+    if (nums[i] == target) {
+      return i; 
+    }
+  }
+  return -1; 
+}
